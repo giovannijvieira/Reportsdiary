@@ -1,0 +1,29 @@
+{
+  "name": "reportsdiary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && rm -rf dist",
+    "server:init": "npm i && npm run db:pull && npm run db:generate"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.15.11",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1356.0",
+    "cron": "^2.3.0",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.9.1",
+    "pdfkit": "^0.13.0"
+  }
+}

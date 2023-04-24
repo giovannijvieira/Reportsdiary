@@ -1,9 +1,11 @@
-import { SES } from 'aws-sdk';
+import AWS from 'aws-sdk';
 import { gerarPDF, gerarPDF2, gerarPDF3 } from './gerarPDF';
 
-
-const ses = new SES({ region: 'us-east-1' });
-
+const ses = new AWS.SES({
+  accessKeyId: process.env.AWS_ID,
+  secretAccessKey: process.env.AWS_KEY,
+  region: 'us-east-1'
+});
 
 export async function enviarEmail(): Promise<void> {
   const pdfBuffer1 = await gerarPDF();
@@ -51,8 +53,8 @@ export async function enviarEmail(): Promise<void> {
     RawMessage: {
       Data: message,
     },
-    Source: 'Remetente <giovanni.vieira@webropay.com.br>',
-    Destinations: ['giovanni.vieira@webropay.com.br','heitor.nishimura@webropay.com.br']
+    Source: 'RELATÓRIOS WEBROPAY <giovanni.vieira@webropay.com.br>',
+    Destinations: ['giovanni.vieira@webropay.com.br','vieira10giovanni@gmail.com']
   };
 
   try {

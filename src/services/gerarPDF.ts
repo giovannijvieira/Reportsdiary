@@ -2,11 +2,11 @@ import PDFDocument from 'pdfkit';
 import { Pool } from 'pg';
 
 const pool = new Pool({
-    user: 'webropay',
-    host: 'webropay-db-instance-1.cwwh8dakaibc.us-east-1.rds.amazonaws.com',
-    database: 'webropaydatabase',
-    password: 'ObyW^gsLDC8-57C*2eqLSgTB4A@',
-    port: 5432,
+    user: process.env.USER_DB,
+    host: process.env.HOST_DB,
+    database: process.env.DATABASE,
+    password: process.env.PWD_DB,
+    port: process.env.PORT_DB,
 });
 
 export async function gerarPDF(): Promise<Buffer> {
